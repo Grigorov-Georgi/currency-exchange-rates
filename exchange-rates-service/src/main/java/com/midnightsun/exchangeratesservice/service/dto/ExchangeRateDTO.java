@@ -1,8 +1,10 @@
-package com.midnightsun.exchangeratesservice.model;
+package com.midnightsun.exchangeratesservice.service.dto;
 
 import com.midnightsun.exchangeratesservice.model.enums.CurrencyEnum;
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -10,17 +12,8 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Entity
-@Table(name = "exchange_rates")
-public class ExchangeRate extends AbstractAuditingEntity {
+public class ExchangeRateDTO {
 
-    @Id
-    @GeneratedValue(generator = "exchange_rates_sequence_generator", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "exchange_rates_sequence_generator", initialValue = 1000, allocationSize = 1)
-    private Long id;
-
-    @Enumerated(value = EnumType.STRING)
     private CurrencyEnum base;
 
     private BigDecimal EUR;
