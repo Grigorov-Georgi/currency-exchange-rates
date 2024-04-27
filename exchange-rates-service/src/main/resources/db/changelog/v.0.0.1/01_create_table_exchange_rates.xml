@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create_table_exchange_rates" author="ggrigorov">
+        <createTable tableName="exchange_rates">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="base" type="varchar(255)"/>
+            <column name="EUR" type="decimal(21,2)"/>
+            <column name="JPY" type="decimal(21,2)"/>
+            <column name="GBP" type="decimal(21,2)"/>
+            <column name="AUD" type="decimal(21,2)"/>
+            <column name="CAD" type="decimal(21,2)"/>
+            <column name="CHF" type="decimal(21,2)"/>
+            <column name="CNY" type="decimal(21,2)"/>
+            <column name="HKD" type="decimal(21,2)"/>
+            <column name="SEK" type="decimal(21,2)"/>
+            <column name="NZD" type="decimal(21,2)"/>
+            <column name="KRW" type="decimal(21,2)"/>
+            <column name="SGD" type="decimal(21,2)"/>
+            <column name="NOK" type="decimal(21,2)"/>
+            <column name="MXN" type="decimal(21,2)"/>
+            <column name="INR" type="decimal(21,2)"/>
+            <column name="BRL" type="decimal(21,2)"/>
+            <column name="RUB" type="decimal(21,2)"/>
+            <column name="ZAR" type="decimal(21,2)"/>
+            <column name="TRY" type="decimal(21,2)"/>
+
+            <!-- mandatory audit columns -->
+            <column name="created_by" type="varchar(255)"/>
+            <column name="created_date" type="timestamp"/>
+            <column name="last_modified_by" type="varchar(255)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="exchange_rates_sequence_generator" author="ggrigorov">
+        <createSequence sequenceName="exchange_rates_sequence_generator"
+                        startValue="1000"
+                        incrementBy="1"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+
+ bnb-posgresql:
+  image: postgres:14.1
+  container_name: bnb-posgresql
+  restart: always
+  volumes:
+   - exchange-rates-service:/data/lib
+  environment:
+   - POSTGRES_DB=exchangeRatesServiceDB
+   - POSTGRES_USER=root
+   - POSTGRES_PASSWORD=toor
+   - POSTGRES_HOST_AUTH_METHOD=trust
+  ports:
+   - '5433:5432'
+
+volumes:
+ exchange-rates-service:
