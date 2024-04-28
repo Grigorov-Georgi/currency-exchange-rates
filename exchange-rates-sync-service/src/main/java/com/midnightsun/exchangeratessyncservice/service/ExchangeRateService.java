@@ -1,34 +1,35 @@
 package com.midnightsun.exchangeratessyncservice.service;
 
+import com.midnightsun.exchangeratessyncservice.service.dto.ExchangeRateDTO;
+import com.midnightsun.exchangeratessyncservice.utils.XmlConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+
+import java.io.IOException;
 
 @Slf4j
 @Service
 public class ExchangeRateService {
 
-    private final WebClient webClient;
+    private final RestClient restClient;
 
-    public ExchangeRateService(WebClient webClient) {
-        this.webClient = webClient;
+    public ExchangeRateService(RestClient restClient) {
+        this.restClient = restClient;
     }
 
-    public void fetchExchangeRates() {
-//        Mono<String> response = webClient.get()
-//                .uri("/api/exchange-rates")
-//                .retrieve()
-//                .bodyToMono(String.class);
-
-//        response.subscribe(System.out::println);
-        RestClient restClient = RestClient.create();
-        String result = restClient.get()
+    private ExchangeRateDTO fetchExchangeRates() {
+        return restClient.get()
                 .uri("http://localhost:8087/api/exchange-rates")
                 .retrieve()
-                .body(String.class);
-
-        String asd = "asd";
+                .body(ExchangeRateDTO.class);
     }
+
+    public byte[] getExchangeRatesFileContent() throws IOException {
+        ExchangeRateDTO exchangeRateDTO = fetchExchangeRates();
+        return XmlConverter.objectToXmlByteArray(exchangeRateDTO);
+    }
+
+
+
 }
