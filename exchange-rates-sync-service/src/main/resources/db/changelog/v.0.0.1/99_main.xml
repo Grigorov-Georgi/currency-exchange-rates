@@ -8,5 +8,6 @@
 
     <include file="/db/changelog/v.0.0.1/01_create_table_currencies.xml"/>
     <include file="/db/changelog/v.0.0.1/02_load_data_to_currencies.xml"/>
+    <include file="/db/changelog/v.0.0.1/03_create_table_exchange_rates.xml"/>
 
 </databaseChangeLog>

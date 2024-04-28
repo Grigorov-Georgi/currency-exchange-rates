@@ -1,6 +1,7 @@
 package com.midnightsun.exchangeratessyncservice.web;
 
 import com.midnightsun.exchangeratessyncservice.service.ExchangeRateService;
+import com.midnightsun.exchangeratessyncservice.service.dto.ExchangeRateDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class ExchangeRateController {
     }
 
     @GetMapping("/download-currencies")
-    public ResponseEntity<byte[]> downloadExchangeRates(){
+    public ResponseEntity<byte[]> downloadExchangeRates() {
         log.info("REST request to download exchange rates");
 
         byte[] fileContent;
@@ -38,5 +39,14 @@ public class ExchangeRateController {
         headers.setContentDispositionFormData("attachment", "exchange-rates.txt");
 
         return new ResponseEntity<>(fileContent, headers, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<ExchangeRateDTO> getMostRecent() {
+        log.info("REST request to get most recent exchange rates");
+        return new ResponseEntity<>(
+                exchangeRateService.getMostRecentExchangeRates(),
+                HttpStatus.OK
+        );
     }
 }
