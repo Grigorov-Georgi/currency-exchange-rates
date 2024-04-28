@@ -1,6 +1,6 @@
 package com.midnightsun.exchangeratessyncservice.service;
 
-import com.midnightsun.exchangeratessyncservice.service.dto.ExchangeRateDTO;
+import com.midnightsun.exchangeratessyncservice.service.dto.ExternalExchangeRateDTO;
 import com.midnightsun.exchangeratessyncservice.utils.XmlConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class ExchangeRateService {
     }
 
     public byte[] getExchangeRatesFileContent() throws IOException {
-        ExchangeRateDTO exchangeRateDTO = externalExchangeRateService.fetchExchangeRates();
-        return XmlConverter.objectToXmlByteArray(exchangeRateDTO);
+        ExternalExchangeRateDTO externalExchangeRateDTO = externalExchangeRateService.fetchExchangeRates();
+        return XmlConverter.objectToXmlByteArray(externalExchangeRateDTO);
     }
 }

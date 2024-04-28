@@ -1,6 +1,6 @@
 package com.midnightsun.exchangeratessyncservice.service;
 
-import com.midnightsun.exchangeratessyncservice.service.dto.ExchangeRateDTO;
+import com.midnightsun.exchangeratessyncservice.service.dto.ExternalExchangeRateDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ public class ExternalExchangeRateService {
     }
 
     @Cacheable("exchange-rates")
-    public ExchangeRateDTO fetchExchangeRates() {
+    public ExternalExchangeRateDTO fetchExchangeRates() {
         log.info("Fetching exchange rates from ExchangeRateService");
         return restClient.get()
                 .uri("http://localhost:8087/api/exchange-rates")
                 .retrieve()
-                .body(ExchangeRateDTO.class);
+                .body(ExternalExchangeRateDTO.class);
     }
 }

@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @XmlRootElement
 @JacksonXmlRootElement(localName = "exchange-rates")
-public class ExchangeRateDTO {
+public class ExternalExchangeRateDTO {
 
     private String base;
 
