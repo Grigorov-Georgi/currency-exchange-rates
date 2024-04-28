@@ -4,7 +4,6 @@ import com.midnightsun.exchangeratessyncservice.service.dto.ExchangeRateDTO;
 import com.midnightsun.exchangeratessyncservice.utils.XmlConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClient;
 
 import java.io.IOException;
 
@@ -12,24 +11,14 @@ import java.io.IOException;
 @Service
 public class ExchangeRateService {
 
-    private final RestClient restClient;
+    private final ExternalExchangeRateService externalExchangeRateService;
 
-    public ExchangeRateService(RestClient restClient) {
-        this.restClient = restClient;
-    }
-
-    private ExchangeRateDTO fetchExchangeRates() {
-        return restClient.get()
-                .uri("http://localhost:8087/api/exchange-rates")
-                .retrieve()
-                .body(ExchangeRateDTO.class);
+    public ExchangeRateService(ExternalExchangeRateService externalExchangeRateService) {
+        this.externalExchangeRateService = externalExchangeRateService;
     }
 
     public byte[] getExchangeRatesFileContent() throws IOException {
-        ExchangeRateDTO exchangeRateDTO = fetchExchangeRates();
+        ExchangeRateDTO exchangeRateDTO = externalExchangeRateService.fetchExchangeRates();
         return XmlConverter.objectToXmlByteArray(exchangeRateDTO);
     }
-
-
-
 }

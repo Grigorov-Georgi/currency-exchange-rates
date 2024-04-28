@@ -18,7 +18,7 @@ When exchange rates change, it saves them in the database and sends information 
 JSON format. The service records exchange rates with both Bulgarian and English names.
 
 ### Features:
-- Fetches the latest exchange rates from the BNB.
+- Fetches the latest exchange rates from the ExchangeRateService and persists them into cache for 15 seconds.
 - Stores exchange rates in a PostgreSQL database.
 - Exposes a REST endpoint for downloading currencies.
 - Sends updates via WebSocket in JSON format.
