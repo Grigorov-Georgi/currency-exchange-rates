@@ -1,8 +1,8 @@
 ## ExchangeRateService
 
 The ExchangeRateService is a temporary implementation to simulate exchange rate updates. Due to issues with the BNB API,
-this service generates random exchange rates every 15 seconds and persists them into a PostgreSQL database. 
-It serves as a placeholder until the BNB API is functional. It exposes ```GET /api/exchange-rates``` endpoint, which 
+this service generates random exchange rates every 15 seconds and persists them into a PostgreSQL database. The format of
+the response is similar to the https://fixer.io/ API. The microservice exposes ```GET /api/exchange-rates``` endpoint, which 
 returns exchange rates with Base USD and 20 more currencies in XML format
 
 ### Features:

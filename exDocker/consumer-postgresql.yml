@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+
+ consumer-posgresql:
+  image: postgres:14.1
+  container_name: consumer-posgresql
+  restart: always
+  volumes:
+   - exchange-rates-consumer-service:/data/lib
+  environment:
+   - POSTGRES_DB=exchangeRatesConsumerServiceDB
+   - POSTGRES_USER=root
+   - POSTGRES_PASSWORD=toor
+   - POSTGRES_HOST_AUTH_METHOD=trust
+  ports:
+   - '5435:5432'
+
+volumes:
+ exchange-rates-consumer-service:

@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+
+ sync-posgresql:
+  image: postgres:14.1
+  container_name: sync-posgresql
+  restart: always
+  volumes:
+   - exchange-rates-sync-service:/data/lib
+  environment:
+   - POSTGRES_DB=exchangeRatesSyncServiceDB
+   - POSTGRES_USER=root
+   - POSTGRES_PASSWORD=toor
+   - POSTGRES_HOST_AUTH_METHOD=trust
+  ports:
+   - '5434:5432'
+
+volumes:
+ exchange-rates-sync-service:
