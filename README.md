@@ -8,6 +8,7 @@ returns exchange rates with Base USD and 20 more currencies in XML format
 ### Features:
 - Generates random exchange rates at regular intervals.
 - Persists generated exchange rates into a PostgreSQL database.
+- Returns exchange rates in XML format
 - Works on port 8087
 
 ### Endpoints:
