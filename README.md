@@ -38,5 +38,4 @@ writes it to a PostgreSQL table.
 ### Features:
 - Listens for updates from the ExchangeRateUpdaterService via WebSocket.
 - Writes exchange rate data to a PostgreSQL table.
-- Acts as a consumer for the exchange rate data.
 - Works on port 8089
