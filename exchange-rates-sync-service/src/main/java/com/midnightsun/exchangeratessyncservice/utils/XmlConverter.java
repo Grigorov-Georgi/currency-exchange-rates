@@ -2,18 +2,22 @@ package com.midnightsun.exchangeratessyncservice.utils;
 
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.midnightsun.exchangeratessyncservice.service.dto.external.ExternalExchangeRateDTO;
+import com.midnightsun.exchangeratessyncservice.service.dto.ExchangeRateDTO;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class XmlConverter {
 
-    public static byte[] objectToXmlByteArray(ExternalExchangeRateDTO obj) throws IOException {
+    public static byte[] objectToXmlByteArray(ExchangeRateDTO dto) throws IOException {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        xmlMapper.writeValue(outputStream, obj);
+
+        if (dto != null) {
+            xmlMapper.writeValue(outputStream, dto);
+        }
+
         return outputStream.toByteArray();
     }
 }

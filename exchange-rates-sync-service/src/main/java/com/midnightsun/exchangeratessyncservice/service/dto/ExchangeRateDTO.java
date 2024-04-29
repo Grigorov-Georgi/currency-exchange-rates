@@ -1,5 +1,7 @@
 package com.midnightsun.exchangeratessyncservice.service.dto;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +11,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JacksonXmlRootElement(localName = "exchange-rates")
 public class ExchangeRateDTO {
+
+    @JacksonXmlProperty(localName = "excludedField")
     private Long id;
 
     private CurrencyInfoDTO base;

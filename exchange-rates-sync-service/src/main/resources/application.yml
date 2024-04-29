@@ -18,10 +18,5 @@ server:
 exchange-rate-service:
  url: http://localhost:8087/api/exchange-rates
 
-
 websocket:
  suffix: /ws/messages
-
-global:
- exception-handling:
-  debug-message: TRUE
