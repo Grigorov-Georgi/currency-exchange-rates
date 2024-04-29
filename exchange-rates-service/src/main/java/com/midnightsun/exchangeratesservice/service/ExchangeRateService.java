@@ -59,9 +59,6 @@ public class ExchangeRateService {
         exchangeRate.setSEK(getRandomBigDecimal());
         exchangeRate.setKRW(getRandomBigDecimal());
 
-        exchangeRate.setCreatedBy("system");
-        exchangeRate.setLastModifiedBy("system");
-
         exchangeRateRepository.save(exchangeRate);
     }
 
