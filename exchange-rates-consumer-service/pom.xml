@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.midnightsun</groupId>
-	<artifactId>exchange-rates-sync-service</artifactId>
+	<artifactId>exchange-rates-consumer-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>exchange-rates-sync-service</name>
-	<description>Exchange rate sync service</description>
+	<name>exchange-rates-consumer-service</name>
+	<description>Exchange rate consumer service</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -34,18 +34,10 @@
 			<artifactId>netty-all</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>1.5.2.Final</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -57,13 +49,9 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.github.ben-manes.caffeine</groupId>
-			<artifactId>caffeine</artifactId>
-			<version>3.0.4</version>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.5.2.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

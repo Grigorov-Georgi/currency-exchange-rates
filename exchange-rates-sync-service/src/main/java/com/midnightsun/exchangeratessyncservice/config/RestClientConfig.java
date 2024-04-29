@@ -13,7 +13,6 @@ public class RestClientConfig {
         MappingJackson2XmlHttpMessageConverter converter = new MappingJackson2XmlHttpMessageConverter();
 
         return RestClient.builder()
-                .baseUrl("http://localhost:8087")
                 .messageConverters(converters -> converters.add(converter))
                 .build();
     }

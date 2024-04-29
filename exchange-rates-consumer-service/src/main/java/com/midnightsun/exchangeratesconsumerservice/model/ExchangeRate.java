@@ -1,6 +1,6 @@
-package com.midnightsun.exchangeratessyncservice.model;
+package com.midnightsun.exchangeratesconsumerservice.model;
 
-import com.midnightsun.exchangeratessyncservice.model.enums.CurrencyEnum;
+import com.midnightsun.exchangeratesconsumerservice.model.enums.CurrencyEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,8 +10,6 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = false, exclude = {"id"})
-@ToString
 @Entity
 @Table(name = "exchange_rates")
 public class ExchangeRate extends AbstractAuditingEntity {

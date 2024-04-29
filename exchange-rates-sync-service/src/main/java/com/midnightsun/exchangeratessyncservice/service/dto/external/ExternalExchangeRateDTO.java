@@ -1,4 +1,4 @@
-package com.midnightsun.exchangeratessyncservice.service.dto;
+package com.midnightsun.exchangeratessyncservice.service.dto.external;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.*;

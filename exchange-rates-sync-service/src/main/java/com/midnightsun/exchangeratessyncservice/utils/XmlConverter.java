@@ -2,7 +2,7 @@ package com.midnightsun.exchangeratessyncservice.utils;
 
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.midnightsun.exchangeratessyncservice.service.dto.ExternalExchangeRateDTO;
+import com.midnightsun.exchangeratessyncservice.service.dto.external.ExternalExchangeRateDTO;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

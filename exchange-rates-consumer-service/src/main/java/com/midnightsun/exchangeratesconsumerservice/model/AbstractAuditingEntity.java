@@ -1,4 +1,4 @@
-package com.midnightsun.exchangeratessyncservice.model;
+package com.midnightsun.exchangeratesconsumerservice.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

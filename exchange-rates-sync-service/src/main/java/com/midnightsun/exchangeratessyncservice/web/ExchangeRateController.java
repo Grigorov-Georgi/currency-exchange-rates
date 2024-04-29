@@ -17,6 +17,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/exchange-rates-sync")
 public class ExchangeRateController {
+
     private final ExchangeRateService exchangeRateService;
 
     public ExchangeRateController(ExchangeRateService exchangeRateService) {

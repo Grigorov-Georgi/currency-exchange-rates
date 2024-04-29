@@ -1,6 +1,6 @@
 spring:
  datasource:
-  url: jdbc:postgresql://localhost:5434/exchangeRatesSyncServiceDB
+  url: jdbc:postgresql://localhost:5435/exchangeRatesConsumerServiceDB
   username: root
   password: toor
  liquibase:
@@ -13,15 +13,7 @@ spring:
     default_schema: public
 
 server:
- port: 8088
-
-exchange-rate-service:
- url: http://localhost:8087/api/exchange-rates
-
+ port: 8089
 
 websocket:
- suffix: /ws/messages
-
-global:
- exception-handling:
-  debug-message: TRUE
+ url: ws://localhost:8088/ws/messages

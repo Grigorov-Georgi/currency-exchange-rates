@@ -1,7 +1,8 @@
 package com.midnightsun.exchangeratessyncservice.service;
 
-import com.midnightsun.exchangeratessyncservice.service.dto.ExternalExchangeRateDTO;
+import com.midnightsun.exchangeratessyncservice.service.dto.external.ExternalExchangeRateDTO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
@@ -10,6 +11,8 @@ import org.springframework.web.client.RestClient;
 @Service
 public class ExternalExchangeRateService {
 
+    @Value("${exchange-rate-service.url}")
+    private String exchangeRateServiceUrl;
     private final RestClient restClient;
 
     public ExternalExchangeRateService(RestClient restClient) {
@@ -20,7 +23,7 @@ public class ExternalExchangeRateService {
     public ExternalExchangeRateDTO fetchExchangeRates() {
         log.info("Fetching exchange rates from ExchangeRateService");
         return restClient.get()
-                .uri("http://localhost:8087/api/exchange-rates")
+                .uri(exchangeRateServiceUrl)
                 .retrieve()
                 .body(ExternalExchangeRateDTO.class);
     }

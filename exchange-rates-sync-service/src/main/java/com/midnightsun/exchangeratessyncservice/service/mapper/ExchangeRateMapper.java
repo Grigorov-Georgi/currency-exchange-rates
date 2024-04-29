@@ -6,7 +6,7 @@ import com.midnightsun.exchangeratessyncservice.model.enums.CurrencyEnum;
 import com.midnightsun.exchangeratessyncservice.repository.CurrencyRepository;
 import com.midnightsun.exchangeratessyncservice.service.dto.CurrencyInfoDTO;
 import com.midnightsun.exchangeratessyncservice.service.dto.ExchangeRateDTO;
-import com.midnightsun.exchangeratessyncservice.service.dto.ExternalExchangeRateDTO;
+import com.midnightsun.exchangeratessyncservice.service.dto.external.ExternalExchangeRateDTO;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
