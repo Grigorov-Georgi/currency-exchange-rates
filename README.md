@@ -10,10 +10,13 @@ returns exchange rates with Base USD and 20 more currencies in XML format
 - Persists generated exchange rates into a PostgreSQL database.
 - Works on port 8087
 
+### Endpoints:
+- GET http://localhost:8087/api/exchange-rates
+
 ## ExchangeRateSyncService
 
 The ExchangeRateUpdaterService is responsible for updating exchange rates from the ExchangeRateService and storing them in a PostgreSQL 
-database. It exposes a REST endpoint ```GET /download-currencies``` for downloading the latest exchange rates in XML format. 
+database. It exposes a REST endpoint ```GET /api/exchange-rates-sync/download-currencies``` for downloading the latest exchange rates in XML format. 
 When exchange rates change, it saves them in the database and sends information about the updates via WebSocket in 
 JSON format. The service records exchange rates with both Bulgarian and English names.
 
@@ -23,6 +26,9 @@ JSON format. The service records exchange rates with both Bulgarian and English 
 - Exposes a REST endpoint for downloading currencies.
 - Sends updates via WebSocket in JSON format.
 - Works on port 8088
+
+### Endpoints:
+- GET http://localhost:8088/api/exchange-rates-sync/download-currencies
 
 ## ExchangeRateConsumerService
 
